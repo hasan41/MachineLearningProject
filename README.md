@@ -21,5 +21,7 @@ There is a great deal of software and technology that are being developed to bet
 References
 
 [1] Julichitai. (2021, February 19). ASL alphabet classification using PyTorch. Retrieved February 28, 2021, from https://www.kaggle.com/julichitai/asl-alphabet-classification-using-pytorch 
+
 [2] Tecperson. (2017, October 20). Sign language mnist. Retrieved March 01, 2021, from https://www.kaggle.com/datamunge/sign-language-mnist 
+
 [3] Sign language recognition using python and opencv. (2020, September 15). Retrieved March 01, 2021, from https://data-flair.training/blogs/sign-language-recognition-python-ml-opencv/ 
