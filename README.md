@@ -200,7 +200,7 @@ Discussion
 8.1) Overall Results
 
 
-![image](https://user-images.githubusercontent.com/34221697/114100263-0915c180-9892-11eb-890b-1983054ae911.png)
+  <img src="https://user-images.githubusercontent.com/34221697/114100593-85100980-9892-11eb-8e0f-6cb8dce3e5fc.png" width="400" height="250" />
 
 
 
