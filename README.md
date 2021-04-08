@@ -112,24 +112,30 @@ Next, we created and fit the logistic regression model using the training data a
 We observed that the model trained with the original dataset performed with an accuracy of about 68%. However, the one trained with the PCA dataset scored slightly lower. Therefore, we decided to stick with the first model for this algorithm. Below are the detailed results for the chosen model’s performance.
 
  <img src="https://user-images.githubusercontent.com/34221697/114098317-2e550080-988f-11eb-9de7-3bdcb8dbcb8a.png" width="500" height="500" />
-
-
-
-Confusion Matrix
-
+ 
+ 
+ 
+ <img src="https://user-images.githubusercontent.com/34221697/114099663-2e560000-9891-11eb-867e-47be180cfef5.png" width="500" height="500" />
+ 
 
 Using the above classification report and confusion matrix we can see which hand symbols were most accurately predicted correctly versus the ones that had the most issues. Letters A, B, E, F, and P performed particularly well while letters I, K, O, R, S, T, U, V, X  performed particularly poorly. 
 
 Overall, our multiclass logistic regression performed pretty well in classifying which letter is being symbolized in an image of a hand performing sign language. However, logistic regression appears to not be the best method to use to classify such images because we can see that it resulted in many letters being confused for other letters. Such examples of this occurring can be seen with letters V and W, R and U, T and H, and Y and L. This makes sense because when comparing the hand signals for these pairs of letters, they are quite similar. This makes it hard for logistic regression to perform with high accuracy because the pixels of images of these symbols which are similar will be hard to distinguish which letter is actually being symbolized. 
 
 
-Support-Vector Machine
+![image](https://user-images.githubusercontent.com/34221697/114099717-4a59a180-9891-11eb-9e6a-8d69dd51000c.png)
+
+
+6. Support-Vector Machine
 
 6.1) What is SVM?
 
 A support-vector machine is a supervised learning model that does binary classification on inputs. Multi-class classification is needed for determining American Sign Language letters. Thus, we can convert the multi class case into multiple binary classifications quite easily.
 
 SVM aims to divide the data in a way such that the gap between the 2 classes of data points is the largest. This can be visualized below.
+
+
+![image](https://user-images.githubusercontent.com/34221697/114099782-61988f00-9891-11eb-98ed-082d6eb0d133.png)
 
 
 6.2) Applying SVM to ASL
@@ -144,7 +150,9 @@ Next, we fit the models to the training data using SKLearns fit method. From her
 
 We found out that the model trained with the PCA modified dataset performs better as it achieves an accuracy of approximately 78.2% compared to the other models 76% accuracy. Not to mention that the PCA model had a much less computation time. Below are the results for the model trained with the PCA dataset.
 
-Classification Report and Accuracy
+
+
+  <img src="https://user-images.githubusercontent.com/34221697/114099925-9278c400-9891-11eb-859e-f0fecb6cefb5.png" width="500" height="500" />
 
 
 
@@ -154,7 +162,7 @@ We can see the precision of the model is about 79%. There are some letters that 
 
  
 
-Convolutional Neural Network (CNN)
+7. Convolutional Neural Network (CNN)
 
 Convolutional neural networks are made up of multiple layers of artificial neurons. Each neuron represents mathematical functions that calculate the weighted sum of multiple inputs and applies an activation value to produce an output. CNN’s are renowned to be one of the best algorithms for image classification. Thus our project takes advantage of this model to attempt to translate sign language images into text.
 
@@ -165,14 +173,22 @@ The model begins by converting the data into numpy arrays. It proceeds to create
 7.1) Model Architecture 
 
 To build the CNN, we used multiple couples of convolution followed by max pooling layers. In each Convolution layer, several filters/kernels are applied to capture certain patterns in the data. Also the max pooling layers summarize the convoluted feature matrices by taking the maximum value of each 2x2 block as a representative of the sharpest feature. Finally, we flattened out the feature matrix and then passed it through a fully connected network for classification. Below is the full model architecture.
+
+ ![image](https://user-images.githubusercontent.com/34221697/114100024-b3d9b000-9891-11eb-8f6e-740168f6c7a6.png)
+
+
 7.2) Training the model 
 
 After the model is compiled (using “adam” as the optimizer and accuracy as the main metric), it is then trained based on the hyperparameters of batch size, number of classes, and number of propagations. The number of classes is determined by the amount of letters we wish to identify. The model runs through forward passes and back propagation as it is trained (and updates the parameters using gradient descent). 
 
 
+  <img src="https://user-images.githubusercontent.com/34221697/114100098-ceac2480-9891-11eb-9fc7-756f602a87d8.png" width="600" height="300" />
 
 
 7.3) Results
+
+
+![image](https://user-images.githubusercontent.com/34221697/114100223-fac7a580-9891-11eb-8cc0-7be16ef0056f.png)
 
 
 As we can see from the plots above, the model showed quick growth as the number of epochs increased and was able to achieve a near perfect accuracy towards the end. It finished with a 97% accuracy. 
@@ -183,6 +199,8 @@ Discussion
 
 8.1) Overall Results
 
+
+![image](https://user-images.githubusercontent.com/34221697/114100263-0915c180-9892-11eb-890b-1983054ae911.png)
 
 
 
