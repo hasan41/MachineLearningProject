@@ -5,37 +5,48 @@ Team: Bahjat Abugharbieh, Hasan Naseer, Muhammad Abdulbari, Robert White, Luke L
  
 With all the technological advancements today, we see the language barriers between all kinds of people being continuously diminished. However, we want to specifically dedicate this project to contribute to the improvement of the means of communication of the American Deaf community. The American Sign Language (ASL) is a language expressed by the hands and face. This language is used to communicate with and between hearing impaired individuals. 
 
-							Project MidSemester Report
+Project MidSemester Report
 
 1. Introduction :
 
 With all the technological advancements today, we see the language barriers between all kinds of people being continuously diminished. However, we want to specifically dedicate this project to contribute to the improvement of the means of communication of the American Deaf community. The American Sign Language (ASL) is a language expressed by the hands and face. This language is used to communicate with and between hearing impaired individuals.
 With our project, we aim to build a model that is able to successfully classify images/still sign language into English letters using supervised learning algorithms. We will also use Unsupervised learning for feature reduction. Also, it’s worthy to note that we will be classifying only 24 out of the 26 letters in the alphabet as letters z and j involve movements. We will be using the MNIST ASL dataset that contains 34627 images of signs and their corresponding labels.
-![image](https://user-images.githubusercontent.com/34221697/114094763-b08ef600-988a-11eb-84ef-fc68b0513096.png)
+  
+  ![image](https://user-images.githubusercontent.com/34221697/114094763-b08ef600-988a-11eb-84ef-fc68b0513096.png)
 
 2. Data Processing:
 
 As mentioned above, we will be using the MNIST ASL dataset for our project. The dataset is split into 80% training data and 20% testing data. The data is provided in the form of a CSV file with approximately 34,000 rows corresponding to every image/data point, as well as 785 columns, where the first column is the label of the image and takes values from 0-24 corresponding to the letters in the alphabet A-X (as mentioned, the letters Z and J involve movement in ASL and are therefore omitted from our project, this means there will be no labels 9 or 25) . The rest of the 784 columns are the values of every pixel from 1 to 784 in a 28x28 image, and since all images will be black and white, the values of these cells range from 0 to 255.
 After reading and processing the data into a panda’s data frame, we found out that there was no missing data and there were no values that were out of the ordinary (no pixel value was out of the range 0-255, and no label value was out of the range 0-24 excluding 9). As an example, this is the output for a randomly chosen image from the training dataset.
+		
+   ![image](https://user-images.githubusercontent.com/34221697/114095542-8853c700-988b-11eb-9a96-cdd4bc931ac9.png)
 
-Unsupervised learning feature Reduction and PCA:
+
+3. Unsupervised learning feature Reduction and PCA:
 
 Since the pictures are 28x28 pixels, the total number of features per picture is 784. This would make it much harder (more computationally exhausting) to train the supervised learning algorithms. Therefore, we decided to apply PCA to reduce the number of features without significantly impacting the performance of the model. PCA uses the eigenvectors of the covariance matrix of the data to transform the data matrix to another subspace where some features are more meaningful than others and we can use a subset of principal components to represent the all the features
 We will be testing the modified dataset for several algorithms in this project, specifically we will try to use it in the SVM, Logistic regression, and Random forest  algorithms.
 
 3.1) PCA Results
 
+![image](https://user-images.githubusercontent.com/34221697/114095729-c51fbe00-988b-11eb-910a-1bb1dbab3492.png)
+
 From the PCA model, we discovered that the first 150 principal components capture more than 96% of the total variance in the model. This can also be supported by the figure above where we see that the cumulative explained variance by the first 150 principal exponents exceeds the line 0.96. In some of the following algorithms we will be testing these 150 principle components and see if they can replace the original features.
 
-Decision Trees and Random Forests
+4. Decision Trees and Random Forests
 
 4.1) Decision Trees
 Decision Trees are a family of classifiers that interprets each feature separately and splits the data based on its values. In our case the decision tree will split the data based on our features (pixels) as a value of their intensity. In other words, the tree will start at one pixel and split the data into 2 branches the first if the intensity is high and the other if the intensity is low. It will recursively repeat this process until we get to the leaves (final label) or we decide to stop at a certain depth to avoid overfitting. 
+
+![image](https://user-images.githubusercontent.com/34221697/114095844-ee404e80-988b-11eb-9055-22addcdb615a.png)
 
 Our optimal decision tree obtained an accuracy of 0.6. However, instead of figuring out ways to improve this model, we decided to invest more time on random forests.
 
 4.2) Ensemble Learning and Random Forests
 One way to improve the accuracy of classifiers is to use ensemble learning. In this case we will use bagging, where multiple decision trees will be trained, and the output will be a combination of the results from the decision trees. Also, instead of manually training multiple decision trees, we will be using the Random Forest algorithm which not only trains multiple decision trees, but also introduces an extra element of randomness by training each tree on a specific subset of features. 
+
+![image](https://user-images.githubusercontent.com/34221697/114095967-1af46600-988c-11eb-8361-1ae1a34350fe.png)
+			
 
 Moreover, there are multiple hyperparameters when it comes to Random Forests. The ones that we will focus on and use 3-Fold Cross Validation to optimize are:
 
@@ -48,17 +59,24 @@ Moreover, there are multiple hyperparameters when it comes to Random Forests. Th
 
 4.3.1) Optimal Model Hyperparameters
 
+
+   ![image](https://user-images.githubusercontent.com/34221697/114096049-352e4400-988c-11eb-9eae-f41afcc6785f.png)
+
 4.3.2) Model Evaluation
 
 We tested the model with both the original dataset and the PCA modified dataset. Even though we predicted that the PCA modified dataset would give better results, it turns out that on our dataset the original features perform better. The best performing model (trained on the original dataset) had the following final results.
 
+  ![image](https://user-images.githubusercontent.com/34221697/114096204-6870d300-988c-11eb-8827-a6b2228e09f1.png)
+
 As we can see from the plot, the performance of the model varies significantly from letter to letter. the model performs best with the letter A at almost 100% accuracy, but performs the worst for the letter "N"  with around 52% accuracy.
 The overall accuracy for the model (for all letters combined) is around 82%.
+
+![image](https://user-images.githubusercontent.com/34221697/114096587-eaf99280-988c-11eb-9b75-cb6bd0ad44f7.png)
 
 
 After closely inspecting the reasons why the original dataset performed much better than the PCA modified one, and why some of the letters are getting misclassified for others even though from the pictures we cannot see clear similarities between them. We believe that due to the nature of decision trees and random forests and how they work, they are unable to capture spatial connections well, this could explain why PCA didn’t really work well, and why we were unable to understand why different letters that don’t really look similar are being classified the same. On the other hand, our model still had an overall prediction accuracy of approximately 0.82.
 
-Logistic Regression
+5. Logistic Regression
 
 5.1) What is Logistic Regression?
 
@@ -68,13 +86,23 @@ In simple logistic regression, there are two possible classes and linear regress
 
 s=x=0+1x1+...+ixi 
 
+   ![image](https://user-images.githubusercontent.com/34221697/114096663-0a90bb00-988d-11eb-8002-5017a1e43b3f.png)
+
 
 Once an equation is found from linear regression, that can then be plugged into the logistic regression equation to create a non-linear sigmoid function that will give the probability of each point from 0 to 1. To decide the class of each point, a threshold is set on the probability, typically 0.5. 
 
 In multiclass logistic regression, a technique called one one-vs-rest is used. For each class, logistic regression is performed on that individual class versus all other classes combined. To decide the classification of new inputs into the multiclass model, the classification that results in the highest probability generated for that respective logistic regression is selected.
+
+
+  ![image](https://user-images.githubusercontent.com/34221697/114096736-21cfa880-988d-11eb-9a78-e3cbea7d646a.png)
+  
+
 5.2) How We Used It
 
 Using the sklearn package in Python, we easily formulated a multiclass linear regression model that uses the images of American Sign Language letters to classify which letter is being symbolized by the hand. We started by importing all the necessary modules and splitting the data into training and testing sets. An 80/20 percent split was used and resulted with the following number of instances with 784 pixels (28 x 28).
+
+
+<img src="https://user-images.githubusercontent.com/34221697/114096817-3ca21d00-988d-11eb-87f1-472258626f2f.png" width="300" height="50" />
 
 Next, we created and fit the logistic regression model using the training data and the sklearn.linear_model.LogisticRegression() function. Then, we tested our model by inputting the testing data into our model and compared it to the actual labels of the test data. We also built another model where we inputted the PCA modified dataset to see how its results would compare.
 
@@ -83,8 +111,8 @@ Next, we created and fit the logistic regression model using the training data a
 
 We observed that the model trained with the original dataset performed with an accuracy of about 68%. However, the one trained with the PCA dataset scored slightly lower. Therefore, we decided to stick with the first model for this algorithm. Below are the detailed results for the chosen model’s performance.
 
+ <img src="https://user-images.githubusercontent.com/34221697/114098317-2e550080-988f-11eb-9de7-3bdcb8dbcb8a.png" width="500" height="500" />
 
-Classification Report and Accuracy
 
 
 Confusion Matrix
