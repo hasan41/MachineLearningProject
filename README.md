@@ -1,4 +1,4 @@
-# MachineLearningProject
+# Machine Learning Final Report
 Machine Learning (CS4641) - Georgia Institute of Technology Project consist of 5 collaborative students
 
 Team: Bahjat Abugharbieh, Hasan Naseer, Muhammad Abdulbari, Robert White, Luke LaScala
