@@ -266,8 +266,8 @@ References:
 
 
 # 10. Group Contributions
-• Bahjat Abugharbieh: Data Processing, Discussion, Random Forests
-• Hasan Naseer: CNN, Website formation
-• Wilson White: Introduction, Logistic Regression
-• Luke Lascala: Introduction, SVM
-• Mohammed Abdulbari: CNN
+	• Bahjat Abugharbieh: Data Processing, Discussion, Random Forests
+	• Hasan Naseer: CNN, Website formation
+	• Wilson White: Introduction, Logistic Regression
+	• Luke Lascala: Introduction, SVM
+	• Mohammed Abdulbari: CNN
