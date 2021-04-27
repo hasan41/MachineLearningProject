@@ -5,7 +5,7 @@ With all the technological advancements today, we see the language barriers betw
 
 Project MidSemester Report
 
-1. Introduction :
+# 1. Introduction :
 
 With all the technological advancements today, we see the language barriers between people of all backgrounds being continuously diminished. However, we want to specifically dedicate this project to contribute to the improvement of the means of communication of the American Deaf community as approximetly 10 Million people are hard of hearing and close to 1 Million people are functionally deaf. 
 The American Sign Language (ASL) is a language expressed by the hands and face. This language is used to communicate with and between hearing impaired individuals.With our project, we aim to build a model that is able to successfully classify images/still sign language into English letters using supervised learning algorithms. We will also use Unsupervised learning for feature reduction. Also, it’s worthy to note that we will be classifying only 24 out of the 26 letters in the alphabet as letters z and j involve movements. We will be using the MNIST ASL dataset that contains 34627 images of signs and their corresponding labels.
