@@ -49,10 +49,10 @@ One way to improve the accuracy of classifiers is to use ensemble learning. In t
 
 Moreover, there are multiple hyperparameters when it comes to Random Forests. The ones that we will focus on and use 3-Fold Cross Validation to optimize are:
 
-1) Number of Decision Trees
-2) Maximum Depth of each decision Tree
-3) Minimum number of samples required to split a node
-4) Maximum Number of features to consider when splitting
+1. Number of Decision Trees
+2. Maximum Depth of each decision Tree
+3. Minimum number of samples required to split a node
+4. Maximum Number of features to consider when splitting
 
 ### 4.3) Results:
 
