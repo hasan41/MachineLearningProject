@@ -1,8 +1,6 @@
 # Machine Learning Final Report
 Machine Learning (CS4641) - Georgia Institute of Technology Project consist of 5 collaborative students
  
-With all the technological advancements today, we see the language barriers between all kinds of people being continuously diminished. However, we want to specifically dedicate this project to contribute to the improvement of the means of communication of the American Deaf community. The American Sign Language (ASL) is a language expressed by the hands and face. This language is used to communicate with and between hearing impaired individuals. 
-
 
 # 1. Introduction :
 
