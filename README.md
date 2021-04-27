@@ -232,7 +232,8 @@ Overall, both architectures performed really well, however we observed that the 
 ### 8.1) Overall Results
 
 
-  <img src="https://user-images.githubusercontent.com/34221697/116214793-11388280-a715-11eb-9e3c-02ed8fc73cc4.png" width="400" height="250" />
+  <img src="https://user-images.githubusercontent.com/67325081/116224869-d1e05500-a759-11eb-9920-8d3913438ba4.png" width="400" height="250" />
+  
 
 
 As we can see, CNN performs best, followed by Random forest, then SVM and finally logistic regression. 
