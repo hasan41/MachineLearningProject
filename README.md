@@ -250,7 +250,7 @@ Overall, CNN currently achieves an accuracy of 0.99 which is really good for the
 We feel like the possibilities of such a project are endless, one example of just how easily we can incorporate this idea into our everyday life is an application that allows for smooth interactions between and with hearing impaired people.
 
 	
-## 9) References:
+# 9) References:
 
 [1] Julichitai. (2021, February 19). ASL alphabet classification using PyTorch. Retrieved February 28, 2021, from https://www.kaggle.com/julichitai/asl-alphabet-classification-using-pytorch 
 
