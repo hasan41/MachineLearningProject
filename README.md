@@ -117,10 +117,6 @@ We observed that the model trained with the original dataset performed with an a
 
 Next, we used grid search cross-validation to tune the model’s hyperparameters. This was done on both the PCA and non-PCA dataset. The highest accuracy obtained was 68% using C=0.046415888336127774. Again, the regular dataset slightly outperformed the PCA dataset, however using the PCA dataset for cross-validation saves a lot of time. 
 
-  ![image](https://user-images.githubusercontent.com/34221697/116210894-48a53000-a711-11eb-9217-0ea1fa178d97.png)
-  
-  ![image](https://user-images.githubusercontent.com/34221697/116211029-6d010c80-a711-11eb-9f0f-b27d15a4b07a.png)
-
 
  <img src="https://user-images.githubusercontent.com/34221697/114098317-2e550080-988f-11eb-9de7-3bdcb8dbcb8a.png" width="500" height="500" />
  
