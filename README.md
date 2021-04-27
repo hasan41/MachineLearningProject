@@ -12,7 +12,7 @@ The American Sign Language (ASL) is a language expressed by the hands and face. 
   
   ![image](https://user-images.githubusercontent.com/34221697/114094763-b08ef600-988a-11eb-84ef-fc68b0513096.png)
 
-2. Data Processing:
+# 2. Data Processing:
 
 As mentioned above, we will be using the MNIST ASL dataset for our project. The dataset is split into 80% training data and 20% testing data. The data is provided in the form of a CSV file with approximately 34,000 rows corresponding to every image/data point, as well as 785 columns, where the first column is the label of the image and takes values from 0-24 corresponding to the letters in the alphabet A-X (as mentioned, the letters Z and J involve movement in ASL and are therefore omitted from our project, this means there will be no labels 9 or 25) . The rest of the 784 columns are the values of every pixel from 1 to 784 in a 28x28 image, and since all images will be black and white, the values of these cells range from 0 to 255.
 After reading and processing the data into a panda’s data frame, we found out that there was no missing data and there were no values that were out of the ordinary (no pixel value was out of the range 0-255, and no label value was out of the range 0-24 excluding 9). As an example, this is the output for a randomly chosen image from the training dataset.
@@ -20,7 +20,7 @@ After reading and processing the data into a panda’s data frame, we found out 
    ![image](https://user-images.githubusercontent.com/34221697/114095542-8853c700-988b-11eb-9a96-cdd4bc931ac9.png)
 
 
-3. Unsupervised learning feature Reduction and PCA:
+# 3. Unsupervised learning feature Reduction and PCA:
 
 Since the pictures are 28x28 pixels, the total number of features per picture is 784. This would make it much harder (more computationally exhausting) to train the supervised learning algorithms. Therefore, we decided to apply PCA to reduce the number of features without significantly impacting the performance of the model. PCA uses the eigenvectors of the covariance matrix of the data to transform the data matrix to another subspace where some features are more meaningful than others and we can use a subset of principal components to represent the all the features
 We will be testing the modified dataset for several algorithms in this project, specifically we will try to use it in the SVM, Logistic regression, and Random forest algorithms.
@@ -31,7 +31,7 @@ We will be testing the modified dataset for several algorithms in this project, 
 
 From the PCA model, we discovered that the first 150 principal components capture more than 96% of the total variance in the model. This can also be supported by the figure above where we see that the cumulative explained variance by the first 150 principal exponents exceeds the line 0.96. In some of the following algorithms we will be testing these 150 principle components and see if they can replace the original features.
 
-4. Decision Trees and Random Forests
+# 4. Decision Trees and Random Forests
 
 4.1) Decision Trees
 
@@ -78,7 +78,7 @@ The overall accuracy for the model (for all letters combined) is around 82%.
 
 After closely inspecting the reasons why the original dataset performed much better than the PCA modified one, and why some of the letters are getting misclassified for others even though from the pictures we cannot see clear similarities between them. We believe that due to the nature of decision trees and random forests and how they work, they are unable to capture spatial connections well, this could explain why PCA didn’t really work well, and why we were unable to understand why different letters that don’t really look similar are being classified the same. On the other hand, our model still had an overall prediction accuracy of approximately 0.82.
 
-5. Logistic Regression
+# 5. Logistic Regression
 
 5.1) What is Logistic Regression?
 
@@ -137,7 +137,7 @@ Overall, our multiclass logistic regression performed pretty well in classifying
 ![image](https://user-images.githubusercontent.com/34221697/114099717-4a59a180-9891-11eb-9e6a-8d69dd51000c.png)
 
 
-6. Support-Vector Machine
+# 6. Support-Vector Machine
 
 6.1) What is SVM?
 
@@ -182,7 +182,7 @@ Next, we applied cross validation hyperparameter tuning to see if we could furth
 We can see the precision of the model is about 85%. There are some letters that perform poorly while some have accuracies as high as 100%. B, D, E are exceptionally well recognized by our model while X, R, U perform badly. The bad performance in recognizing R and U can be attributed to the similar looking signs as shown in the Logistic regression section. Overall, SVM performs very well in identifying signs.
  
 
-7. Convolutional Neural Network (CNN)
+# 7. Convolutional Neural Network (CNN)
 
 Convolutional neural networks are made up of multiple layers of artificial neurons. Each neuron represents mathematical functions that calculate the weighted sum of multiple inputs and applies an activation value to produce an output. CNN’s are renowned to be one of the best algorithms for image classification. Thus our project takes advantage of this model to attempt to translate sign language images into text.
 
@@ -232,7 +232,7 @@ As we can see from the plots above, the model showed quick growth as the number 
 Overall, both architectures performed really well, however we observed that the LeNet architecture achieved a slightly higher accuracy and therefore it will be the one we will be considering for our final CNN model
 
 
-8. Discussion
+# 8. Discussion
 
 8.1) Overall Results
 
@@ -265,7 +265,7 @@ References:
 [3] Sign language recognition using python and opencv. (2020, September 15). Retrieved March 01, 2021, from https://data-flair.training/blogs/sign-language-recognition-python-ml-opencv/ 
 
 
-10. Group Contributions
+# 10. Group Contributions
 • Bahjat Abugharbieh: Data Processing, Discussion, Random Forests
 • Hasan Naseer: CNN, Website formation
 • Wilson White: Introduction, Logistic Regression
